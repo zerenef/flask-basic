@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto my-4">
+          <form name="loginForm" id="loginForm" method="POST" action="{{ url_for('login') }}" novalidate>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Email Adresi</label>
+                <input type="text" class="form-control" placeholder="Email Adresi" id="username" name="username" required data-validation-required-message="Bu alan boş geçilemez. Lütfen email adresinizi yazınız." value="{{ request.form.username }}">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Parola</label>
+                <input type="password" class="form-control" placeholder="Parola" id="password" name="password" required data-validation-required-message="Bu alan boş geçilemez. Lütfen parolanızı yazınız." value="{{ request.form.password }}">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <br>
+            <div id="success"></div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-sm" id="login">Giriş Yap</button>
+            </div>
+          </form>
+          <p>Kullanıcı adı: <b>admin</b> Parola: <b>admin</b></p>
+          <p><small>Güncellenecek</small></p>
+        </div>
+      </div>
+    </div>
+    <hr>
+{% endblock %}

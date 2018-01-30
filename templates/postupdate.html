@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <form name="updateForm" id="updateForm" method="POST" action="{{ url_for('update') }}" novalidate>
+          	<input type="hidden" name="post_id" value="{{ post_id }}">
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Başlık</label>
+                <input type="text" class="form-control" placeholder="Başlık" id="title" name="title" required data-validation-required-message="Başlığı giriniz." value="{{ title }}">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Altbaşlık</label>
+                <input type="text" class="form-control" placeholder="Altbaşlık" id="subtitle" name="subtitle" required data-validation-required-message="Altbaşlığı giriniz." value="{{ subtitle }}">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label>Yazar</label>
+                <input type="text" class="form-control" placeholder="Yazar" id="author" name="author" required data-validation-required-message="Adınızı giriniz." value="{{ author }}">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>İçerik</label>
+                <textarea rows="5" class="form-control" placeholder="İçerik" id="content" name="content" required data-validation-required-message="Yazıyı yazınız.">{{ content|safe }}</textarea>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <br>
+            <div id="success"></div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-sm" id="updatePost">Yazıyı Güncelle</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <hr>
+{% endblock %}

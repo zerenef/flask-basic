@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <a class="btn btn-success btn-sm my-4" style="float: right" href="{{ url_for('add') }}">Yazı Ekle</a>
+      {% for post in blogposts %}
+      <div class="post-preview my-4">
+        <a href="{{ url_for('post', post_id=post.id) }}">
+          <h2 class="post-title">{{ post.title }}
+            <a href="{{ url_for('postdelete', post_id=post.id) }}" class="btn btn-danger btn-sm ml-3">Yazıyı Sil</a>
+            <a href="{{ url_for('postupdate', post_id=post.id) }}" class="btn btn-primary btn-sm ml-3">Yazıyı Güncelle</a></h2>
+            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+          </a>
+          <p class="post-meta">{{ post.author }} tarafından {{ post.date_posted.strftime('%B %d, %Y') }} tarihinde yazıldı.</p>
+        </div>
+        <hr>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endblock %}
